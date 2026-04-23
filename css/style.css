@@ -1,0 +1,176 @@
+//* ESTILOS GLOBAIS */
+body {
+    background-color: #d3d3d3;
+    font-family: 'Segoe UI', Verdana, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* imagem de fundo tela inicial */
+.hero-banner {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url("logo.jpg") center center / cover no-repeat;
+    min-height: 650px;
+    width: 100%;
+    position: relative;
+}
+
+/* Navbar */
+.top-bar {
+    background: #cfcfcf;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+}
+
+.btn-cadastro {
+    background: rgb(216, 202, 0);
+    border: none;
+    padding: 10px 35px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cadastro:hover {
+    transform: scale(1.05);
+}
+
+.menu {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Modal cadastro */
+
+/* ============================================================
+   TEXTO PRINCIPAL
+============================================================ */
+.hero-content {
+    padding: 60px 40px;
+    max-width: 600px;
+}
+
+.hero-content small {
+    color: rgb(216, 202, 0);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.hero-content h1 {
+    font-size: 62px;
+    line-height: 1.1;
+    color: white;
+    font-family: serif;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.hero-content h2 {
+    color: rgb(216, 202, 0);
+    font-size: 38px;
+    font-family: serif;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+/* ============================================================
+   FAIXA BRANCA
+============================================================ */
+.faixa-branca {
+    background: #f8f8f8;
+    padding: 18px;
+    text-align: center;
+    font-size: 24px;
+    font-style: italic;
+    color: #222;
+}
+
+.faixa-branca span {
+    color: rgb(216, 202, 0);
+}
+
+/* ============================================================
+   ÁREA CINZA
+============================================================ */
+.area-personal {
+    background: #d3d3d3;
+    min-height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 60px 40px;
+}
+
+/* botão escolher personal */
+.btn-escolher {
+    background: white;
+    border: none;
+    padding: 12px 55px;
+    border-radius: 30px;
+    font-style: italic;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-escolher:hover {
+    transform: scale(1.05);
+}
+
+/* imagem celular */
+.celular img {
+    width: 260px;
+    border-radius: 10px;
+}
+
+/* ============================================================
+   RESPONSIVO
+============================================================ */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 40px 25px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content h2 {
+        font-size: 28px;
+    }
+
+    .area-personal {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .celular img {
+        width: 200px;
+    }
+
+    .top-bar {
+        padding: 0 15px;
+    }
+
+    .btn-cadastro {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+}
