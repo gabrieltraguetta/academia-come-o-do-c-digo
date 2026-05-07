@@ -1,7 +1,11 @@
 /* ESTILOS GLOBAIS */
 body {
     background-color: #d3d3d3;
+<<<<<<< HEAD
     font-family: 'Poppins', 'Segoe UI', Verdana, Tahoma, sans-serif; /* 🔥 melhor fonte */
+=======
+    font-family: 'Segoe UI', Verdana, Tahoma, sans-serif;
+>>>>>>> 79effd34e1dd6bdd1881273edf638694e79f841f
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -10,6 +14,7 @@ body {
 /* imagem de fundo tela inicial */
 .hero-banner {
     background:
+<<<<<<< HEAD
        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* 🔥 overlay mais forte */
     url("../imagens/telainicial.jpg") center center / cover no-repeat;
     
@@ -17,6 +22,15 @@ body {
     width: 100%;
     position: relative;
 
+=======
+       linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../imagens/telainicial.jpg") center center / cover no-repeat;
+    min-height: 650px;
+    width: 100%;
+    position: relative;
+
+    /* melhora alinhamento do conteúdo */
+>>>>>>> 79effd34e1dd6bdd1881273edf638694e79f841f
     display: flex;
     align-items: center;
 }
@@ -56,10 +70,14 @@ body {
     transform: scale(1.05);
 }
 
+<<<<<<< HEAD
 /* 🔥 agora branco porque está sobre imagem escura */
+=======
+/* corrigido: cor visível */
+>>>>>>> 79effd34e1dd6bdd1881273edf638694e79f841f
 .menu {
     font-size: 30px;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
