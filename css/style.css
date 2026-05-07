@@ -7,27 +7,29 @@ body {
     padding: 0;
 }
 
-/* imagem de fundo tela inicial */
+/* HERO */
 .hero-banner {
     background:
-       linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url("../imagens/telainicial.jpg") center center / cover no-repeat;
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("../imagens/telainicial.jpg") center center / cover no-repeat;
+
     min-height: 650px;
     width: 100%;
     position: relative;
 
-    /* melhora alinhamento do conteúdo */
     display: flex;
     align-items: center;
 }
 
-/* Navbar */
+/* NAVBAR */
 .top-bar {
     background: #cfcfcf;
     height: 70px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 30px;
 }
 
@@ -51,16 +53,36 @@ body {
     transform: scale(1.05);
 }
 
-/* corrigido: cor visível */
-.menu {
+/* BOTÃO MENU */
+.btn-menu {
     font-size: 30px;
+    background: none;
+    border: none;
     color: black;
     cursor: pointer;
+    display: none;
 }
 
-/* ============================================================
-   TEXTO PRINCIPAL
-============================================================ */
+/* MENU */
+.menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #111;
+    font-weight: bold;
+}
+
+.menu li a:hover {
+    color: rgb(216, 202, 0);
+}
+
+/* TEXTO PRINCIPAL */
 .hero-content {
     padding: 60px 40px;
     max-width: 600px;
@@ -90,9 +112,7 @@ body {
     font-weight: bold;
 }
 
-/* ============================================================
-   FAIXA BRANCA
-============================================================ */
+/* FAIXA */
 .faixa-branca {
     background: #f8f8f8;
     padding: 18px;
@@ -106,19 +126,19 @@ body {
     color: rgb(216, 202, 0);
 }
 
-/* ============================================================
-   ÁREA CINZA
-============================================================ */
+/* ÁREA PERSONAL */
 .area-personal {
     background: #d3d3d3;
     min-height: 500px;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
+
     padding: 60px 40px;
 }
 
-/* botão escolher personal */
+/* BOTÃO */
 .btn-escolher {
     background: white;
     border: none;
@@ -134,16 +154,123 @@ body {
     transform: scale(1.05);
 }
 
-/* imagem celular */
+/* CELULAR */
 .celular img {
     width: 260px;
     border-radius: 10px;
 }
 
-/* ============================================================
-   RESPONSIVO
-============================================================ */
+/* PLANOS */
+.planos {
+    background: #d3d3d3;
+
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+
+    padding: 70px 20px;
+    flex-wrap: wrap;
+}
+
+.card-plano {
+    background: #f1df91;
+    width: 300px;
+    padding: 30px;
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card-plano h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.card-plano p {
+    margin-bottom: 15px;
+}
+
+.card-plano strong {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+.destaque {
+    background: rgb(216, 202, 0);
+    transform: scale(1.05);
+}
+
+/* FEEDBACKS */
+.feedbacks {
+    background: #efefef;
+    padding: 80px 8%;
+}
+
+.feedbacks h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 42px;
+    font-style: italic;
+    color: #111;
+}
+
+.feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+
+.feedback-card {
+    background: #e4e4e4;
+    padding: 25px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.feedback-card:hover {
+    transform: translateY(-5px);
+}
+
+.feedback-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.feedback-top img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.feedback-top h3 {
+    margin: 0;
+    font-size: 28px;
+    font-style: italic;
+    color: #111;
+}
+
+.stars {
+    color: rgb(216, 202, 0);
+    font-size: 18px;
+}
+
+.feedback-card p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #222;
+    font-style: italic;
+}
+
+/* RESPONSIVO */
 @media (max-width: 768px) {
+
     .hero-content {
         padding: 40px 25px;
     }
@@ -154,6 +281,10 @@ body {
 
     .hero-content h2 {
         font-size: 28px;
+    }
+
+    .hero-banner {
+        min-height: 500px;
     }
 
     .area-personal {
@@ -174,4 +305,25 @@ body {
         padding: 8px 20px;
         font-size: 12px;
     }
+
+    .btn-menu {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .feedback-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feedbacks h2 {
+        font-size: 30px;
+    }
+
+    .feedback-card p {
+        font-size: 16px;
+    }
+
 }
