@@ -1,11 +1,7 @@
 /* ESTILOS GLOBAIS */
 body {
     background-color: #d3d3d3;
-<<<<<<< HEAD
-    font-family: 'Poppins', 'Segoe UI', Verdana, Tahoma, sans-serif; /* 🔥 melhor fonte */
-=======
     font-family: 'Segoe UI', Verdana, Tahoma, sans-serif;
->>>>>>> 79effd34e1dd6bdd1881273edf638694e79f841f
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -14,40 +10,23 @@ body {
 /* HERO */
 .hero-banner {
     background:
-<<<<<<< HEAD
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-        url("../imagens/telainicial.jpg") center center / cover no-repeat;
+        linear-gradient(rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.45)),
+        url("../imagens/telainicial.jpg")
+        center center / cover no-repeat;
 
-=======
-<<<<<<< HEAD
-       linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* 🔥 overlay mais forte */
-    url("../imagens/telainicial.jpg") center center / cover no-repeat;
-    
-    height: 100vh; /* 🔥 ocupa tela toda */
-    width: 100%;
-    position: relative;
-
-=======
-       linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url("../imagens/telainicial.jpg") center center / cover no-repeat;
->>>>>>> c5fa1b9112635980c76946b5e2675862d27d71b7
     min-height: 650px;
     width: 100%;
-    position: relative;
 
-<<<<<<< HEAD
-=======
-    /* melhora alinhamento do conteúdo */
->>>>>>> 79effd34e1dd6bdd1881273edf638694e79f841f
->>>>>>> c5fa1b9112635980c76946b5e2675862d27d71b7
     display: flex;
     align-items: center;
 }
 
 /* NAVBAR */
 .top-bar {
-    background: transparent; /* 🔥 antes cinza */
-    height: 70px;
+    background: #8f8f8f;
+
+    height: 60px;
 
     display: flex;
     align-items: center;
@@ -55,24 +34,35 @@ body {
 
     padding: 0 30px;
 
-    position: absolute; /* 🔥 agora fica sobre a imagem */
-    top: 0;
-    left: 0;
-    width: 100%;
+    border-top: 3px solid #29a8ff;
+    border-bottom: 2px solid #7d00ff;
 }
 
+/* LOGO */
 .logo {
-    width: 40px; /* 🔥 menor */
+    width: 75px;
     height: auto;
 }
 
+/* ÁREA DIREITA */
+.right-area {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* BOTÃO CADASTRO */
 .btn-cadastro {
     background: rgb(216, 202, 0);
+
     border: none;
-    padding: 10px 35px;
-    border-radius: 8px;
+    border-radius: 10px;
+
+    padding: 10px 32px;
+
     font-weight: bold;
-    font-size: 14px;
+    font-size: 18px;
+
     cursor: pointer;
     transition: 0.3s;
 }
@@ -81,52 +71,22 @@ body {
     transform: scale(1.05);
 }
 
-<<<<<<< HEAD
-/* BOTÃO MENU */
+/* MENU HAMBURGUER */
 .btn-menu {
-=======
-<<<<<<< HEAD
-/* 🔥 agora branco porque está sobre imagem escura */
-=======
-/* corrigido: cor visível */
->>>>>>> 79effd34e1dd6bdd1881273edf638694e79f841f
-.menu {
->>>>>>> c5fa1b9112635980c76946b5e2675862d27d71b7
-    font-size: 30px;
     background: none;
     border: none;
-    color: black;
+
+    color: white;
+
+    font-size: 40px;
+
     cursor: pointer;
-    display: none;
-}
-
-/* MENU */
-.menu {
-    display: flex;
-    gap: 25px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu li a {
-    text-decoration: none;
-    color: #111;
-    font-weight: bold;
-}
-
-.menu li a:hover {
-    color: rgb(216, 202, 0);
 }
 
 /* TEXTO PRINCIPAL */
 .hero-content {
-    position: absolute; /* 🔥 ESSENCIAL */
-    top: 35%;
-    left: 60px;
-
-    padding: 0; /* 🔥 removido excesso */
-    max-width: 500px;
+    padding: 60px 40px;
+    max-width: 600px;
 }
 
 .hero-content small {
@@ -137,39 +97,39 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 58px; /* 🔥 ajuste fino */
+    font-size: 62px;
     line-height: 1.1;
     color: white;
-    font-family: 'Poppins', sans-serif; /* 🔥 trocado serif */
+    font-family: serif;
     margin: 15px 0;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .hero-content h2 {
     color: rgb(216, 202, 0);
-    font-size: 30px; /* 🔥 menos exagerado */
-    font-family: 'Poppins', sans-serif; /* 🔥 trocado serif */
-    margin-top: 20px;
-    font-weight: 600;
+    font-size: 38px;
+    font-family: serif;
+    margin-top: 30px;
+    font-weight: bold;
 }
 
 /* FAIXA */
 .faixa-branca {
-    background: #ffffff; /* 🔥 branco real */
+    background: #f8f8f8;
     padding: 18px;
     text-align: center;
-    font-size: 22px;
+    font-size: 24px;
+    font-style: italic;
     color: #222;
 }
 
 .faixa-branca span {
     color: rgb(216, 202, 0);
-    font-weight: bold;
 }
 
 /* ÁREA PERSONAL */
 .area-personal {
-    background: #e5e5e5; /* 🔥 mais suave */
+    background: #d3d3d3;
     min-height: 500px;
 
     display: flex;
@@ -181,12 +141,12 @@ body {
 
 /* BOTÃO */
 .btn-escolher {
-    background: rgb(216, 202, 0); /* 🔥 destaque igual botão de cima */
+    background: white;
     border: none;
-    padding: 14px 45px;
-    border-radius: 10px;
+    padding: 12px 55px;
+    border-radius: 30px;
+    font-style: italic;
     font-size: 15px;
-    font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -312,9 +272,29 @@ body {
 /* RESPONSIVO */
 @media (max-width: 768px) {
 
+    .top-bar {
+        padding: 0 15px;
+    }
+
+    .logo {
+        width: 60px;
+    }
+
+    .right-area {
+        gap: 15px;
+    }
+
+    .btn-cadastro {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+
+    .btn-menu {
+        font-size: 35px;
+    }
+
     .hero-content {
-        top: 30%;
-        left: 20px;
+        padding: 40px 25px;
     }
 
     .hero-content h1 {
@@ -322,7 +302,7 @@ body {
     }
 
     .hero-content h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .hero-banner {
@@ -339,24 +319,6 @@ body {
         width: 200px;
     }
 
-    .top-bar {
-        padding: 0 15px;
-    }
-
-    .btn-cadastro {
-        padding: 8px 20px;
-        font-size: 12px;
-    }
-<<<<<<< HEAD
-
-    .btn-menu {
-        display: block;
-    }
-
-    .menu {
-        display: none;
-    }
-
     .feedback-grid {
         grid-template-columns: 1fr;
     }
@@ -369,32 +331,4 @@ body {
         font-size: 16px;
     }
 
-=======
-}
-.acoes {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* 🔥 controla o espaço entre botão e menu */
-}
- .menu-lateral {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100%;
-    background: #222;
-    padding: 20px;
-    transition: 0.3s;
-}
-
-.menu-lateral a {
-    display: block;
-    color: white;
-    margin: 15px 0;
-    text-decoration: none;
-}
-
-.menu-lateral.ativo {
-    right: 0;
->>>>>>> c5fa1b9112635980c76946b5e2675862d27d71b7
 }
