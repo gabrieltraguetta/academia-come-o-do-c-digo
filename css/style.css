@@ -1,7 +1,11 @@
 /* ESTILOS GLOBAIS */
 body {
     background-color: #d3d3d3;
+<<<<<<< HEAD
+    font-family: 'Poppins', 'Segoe UI', Verdana, Tahoma, sans-serif; /* 🔥 melhor fonte */
+=======
     font-family: 'Segoe UI', Verdana, Tahoma, sans-serif;
+>>>>>>> 79effd34e1dd6bdd1881273edf638694e79f841f
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -10,20 +14,39 @@ body {
 /* HERO */
 .hero-banner {
     background:
+<<<<<<< HEAD
         linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
         url("../imagens/telainicial.jpg") center center / cover no-repeat;
 
+=======
+<<<<<<< HEAD
+       linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), /* 🔥 overlay mais forte */
+    url("../imagens/telainicial.jpg") center center / cover no-repeat;
+    
+    height: 100vh; /* 🔥 ocupa tela toda */
+    width: 100%;
+    position: relative;
+
+=======
+       linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    url("../imagens/telainicial.jpg") center center / cover no-repeat;
+>>>>>>> c5fa1b9112635980c76946b5e2675862d27d71b7
     min-height: 650px;
     width: 100%;
     position: relative;
 
+<<<<<<< HEAD
+=======
+    /* melhora alinhamento do conteúdo */
+>>>>>>> 79effd34e1dd6bdd1881273edf638694e79f841f
+>>>>>>> c5fa1b9112635980c76946b5e2675862d27d71b7
     display: flex;
     align-items: center;
 }
 
 /* NAVBAR */
 .top-bar {
-    background: #cfcfcf;
+    background: transparent; /* 🔥 antes cinza */
     height: 70px;
 
     display: flex;
@@ -31,10 +54,15 @@ body {
     justify-content: space-between;
 
     padding: 0 30px;
+
+    position: absolute; /* 🔥 agora fica sobre a imagem */
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .logo {
-    width: 60px;
+    width: 40px; /* 🔥 menor */
     height: auto;
 }
 
@@ -53,8 +81,17 @@ body {
     transform: scale(1.05);
 }
 
+<<<<<<< HEAD
 /* BOTÃO MENU */
 .btn-menu {
+=======
+<<<<<<< HEAD
+/* 🔥 agora branco porque está sobre imagem escura */
+=======
+/* corrigido: cor visível */
+>>>>>>> 79effd34e1dd6bdd1881273edf638694e79f841f
+.menu {
+>>>>>>> c5fa1b9112635980c76946b5e2675862d27d71b7
     font-size: 30px;
     background: none;
     border: none;
@@ -84,8 +121,12 @@ body {
 
 /* TEXTO PRINCIPAL */
 .hero-content {
-    padding: 60px 40px;
-    max-width: 600px;
+    position: absolute; /* 🔥 ESSENCIAL */
+    top: 35%;
+    left: 60px;
+
+    padding: 0; /* 🔥 removido excesso */
+    max-width: 500px;
 }
 
 .hero-content small {
@@ -96,39 +137,39 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 62px;
+    font-size: 58px; /* 🔥 ajuste fino */
     line-height: 1.1;
     color: white;
-    font-family: serif;
+    font-family: 'Poppins', sans-serif; /* 🔥 trocado serif */
     margin: 15px 0;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .hero-content h2 {
     color: rgb(216, 202, 0);
-    font-size: 38px;
-    font-family: serif;
-    margin-top: 30px;
-    font-weight: bold;
+    font-size: 30px; /* 🔥 menos exagerado */
+    font-family: 'Poppins', sans-serif; /* 🔥 trocado serif */
+    margin-top: 20px;
+    font-weight: 600;
 }
 
 /* FAIXA */
 .faixa-branca {
-    background: #f8f8f8;
+    background: #ffffff; /* 🔥 branco real */
     padding: 18px;
     text-align: center;
-    font-size: 24px;
-    font-style: italic;
+    font-size: 22px;
     color: #222;
 }
 
 .faixa-branca span {
     color: rgb(216, 202, 0);
+    font-weight: bold;
 }
 
 /* ÁREA PERSONAL */
 .area-personal {
-    background: #d3d3d3;
+    background: #e5e5e5; /* 🔥 mais suave */
     min-height: 500px;
 
     display: flex;
@@ -140,12 +181,12 @@ body {
 
 /* BOTÃO */
 .btn-escolher {
-    background: white;
+    background: rgb(216, 202, 0); /* 🔥 destaque igual botão de cima */
     border: none;
-    padding: 12px 55px;
-    border-radius: 30px;
-    font-style: italic;
+    padding: 14px 45px;
+    border-radius: 10px;
     font-size: 15px;
+    font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -272,7 +313,8 @@ body {
 @media (max-width: 768px) {
 
     .hero-content {
-        padding: 40px 25px;
+        top: 30%;
+        left: 20px;
     }
 
     .hero-content h1 {
@@ -280,7 +322,7 @@ body {
     }
 
     .hero-content h2 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .hero-banner {
@@ -305,6 +347,7 @@ body {
         padding: 8px 20px;
         font-size: 12px;
     }
+<<<<<<< HEAD
 
     .btn-menu {
         display: block;
@@ -326,4 +369,32 @@ body {
         font-size: 16px;
     }
 
+=======
+}
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 🔥 controla o espaço entre botão e menu */
+}
+ .menu-lateral {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: #222;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.menu-lateral a {
+    display: block;
+    color: white;
+    margin: 15px 0;
+    text-decoration: none;
+}
+
+.menu-lateral.ativo {
+    right: 0;
+>>>>>>> c5fa1b9112635980c76946b5e2675862d27d71b7
 }
