@@ -4,97 +4,250 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Seu CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../css/style.css">
 
   <title>Personal Trainer</title>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
-  <section class="hero-banner text-white">
+  <!-- HERO -->
+  <section class="hero-banner">
 
-    <!-- TOPO -->
-    <div class="container-fluid py-3 px-4 d-flex justify-content-between align-items-center"
-         style="background: #cfcfcf;">
+    <!-- NAVBAR -->
+    <div class="top-bar">
 
-      <!-- LOGO -->
-      <img src="logo.png" alt="Logo" style="width: 60px;">
+      <img src="../imagens/logo.png" class="logo" alt="Logo">
 
-      <!-- BOTÃO -->
-      <button class="btn px-4 fw-bold"
-              style="background: rgb(216, 202, 0); border-radius: 8px;">
-        Cadastre-se
-      </button>
+      <div class="acoes">
+        <!-- BOTÃO  -->
+        <button class="btn-cadastro" data-bs-toggle="modal" data-bs-target="#cadastroModal">
+          Cadastre-se
+        </button>
 
-      <!-- MENU -->
-      <div style="font-size: 30px; cursor: pointer;">
-        ☰
+        <div class="menu" onclick="toggleMenu()">
+          ☰
+        </div>
       </div>
+
     </div>
 
-    <!-- TEXO PRINCIPAL -->
-    <div class="container py-5">
+    <!-- TEXTO -->
+    <div class="hero-content">
+      <small>+ 2.600 RESULTADOS POSITIVOS</small>
 
-      <p class="mb-2 fw-bold"
-         style="color: rgb(216, 202, 0); font-size: 14px;">
-        + 2.600 RESULTADOS POSITIVOS
-      </p>
-
-      <h1 class="display-4 fw-bold"
-          style="max-width: 500px; font-family: serif;">
+      <h1>
         Treinamento<br>
         personalizado para<br>
         resultados reais.
       </h1>
 
-      <h2 class="mt-4"
-          style="color: rgb(216, 202, 0); font-family: serif;">
+      <h2>
         Treine certo. Evolua de verdade.
       </h2>
-
     </div>
+
   </section>
 
-  <!-- FAIXA BRANCA -->
-  <section class="bg-white text-center py-3">
-    <h5 class="m-0 fst-italic text-dark">
-      Encontre o Personal
-      <span style="color: rgb(216, 202, 0);">
-        mais próximo de você
-      </span>
-    </h5>
+  <!-- FAIXA -->
+  <section class="faixa-branca">
+    Encontre o Personal
+    <span>mais próximo de você</span>
   </section>
 
   <!-- ÁREA CINZA -->
-  <section style="background: #d3d3d3; min-height: 500px;">
+  <section class="area-personal">
+    <div>
+     <button class="btn-escolher" data-bs-toggle="modal" data-bs-target="#modalPersonal">
+  Escolher Personal
+</button>
+<div class="modal fade" id="modalPersonal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
 
-    <div class="container py-5">
+      <div class="modal-header">
+        <h5 class="modal-title">Escolha seu Personal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
 
-      <div class="row align-items-center justify-content-between">
+      <div class="modal-body">
 
-        <!-- BOTÃO -->
-        <div class="col-md-6 text-center">
-          <button class="btn px-5 py-2 rounded-pill bg-white fst-italic">
-            Escolher Personal
-          </button>
-        </div>
+        <div class="row">
 
-        <!-- CELULAR -->
-        <div class="col-md-6 text-center">
-          <img src="celular.png"
-               alt="WhatsApp Personal"
-               class="img-fluid"
-               style="max-width: 250px;">
+          <!-- PERSONAL 1 -->
+          <div class="col-md-4 text-center">
+            <img src="imagens/OTA PICTURE.jpg" class="img-fluid rounded mb-2">
+            <h6>Duda Ota</h6>
+            <p>Personal Trainer</p>
+             <button class="btn btn-warning" onclick="mostrarOpcoes('Duda Ota')"> Selecionar
+</button>
+          </div>
+
+          <!-- PERSONAL 2 -->
+          <div class="col-md-4 text-center">
+            <img src="imagens/PERSONAL TRAINER PICTURE.webp" class="img-fluid rounded mb-2">
+            <h6>Gabriel Dias</h6>
+            <p>Personal Trainer</p>
+            <button class="btn btn-warning" onclick="mostrarOpcoes('Gabriel Dias')"> Selecionar
+</button>
+          </div>
+
+          <!-- PERSONAL 3 -->
+          <div class="col-md-4 text-center">
+            <img src="imagens/NUTRIIMAGEM.jpg" class="img-fluid rounded mb-2">
+            <h6>Marina Gomes</h6>
+            <p>Nutricionista</p>
+            <button class="btn btn-warning" onclick="mostrarOpcoes('Marina Gomes')"> Selecionar
+</button>
+          </div>
+
+            <!-- PERSONAL 4 -->
+          <div class="col-md-4 text-center">
+            <img src="imagens/FISIO IMAGEM.jpg" class="img-fluid rounded mb-2">
+            <h6>Amanda Santos</h6>
+            <p>Fisioterapeuta</p>
+            <button class="btn btn-warning" onclick="mostrarOpcoes('Amanda Santos')"> Selecionar
+</button>
+
+<div id="opcoesPersonal" style="display:none; margin-top:20px; text-align:center;">
+
+  <h5 id="nomePersonal"></h5>
+
+  <button class="btn btn-success m-2">Entrar em contato</button>
+  <button class="btn btn-primary m-2">Ver perfil</button>
+  <button class="btn btn-secondary m-2" onclick="fecharOpcoes()">Cancelar</button>
+
+</div>
+          </div>
+
         </div>
 
       </div>
 
     </div>
+  </div>
+</div>
+    </div>
+
+    <div class="celular">
+      <img src="../imagens/whatzap.png" alt="WhatsApp Personal">
+    </div>
   </section>
+
+  <!-- MENU LATERAL -->
+  <div id="menu-lateral" class="menu-lateral">
+    <button class="btn-fechar" onclick="toggleMenu()">×</button>
+    <a href="#">Início</a>
+    <a href="#">Planos</a>
+    <a href="#">Contato</a>
+  </div>
+
+  <!-- ✅ MODAL BOOTSTRAP CORRETO -->
+  <div class="modal fade" id="cadastroModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Cadastre-se</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Nome</label>
+              <input type="text" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Telefone</label>
+              <input type="text" class="form-control" required>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+          <!-- botão estilizado -->
+          <button class="btn" style="background: rgb(216,202,0); font-weight:bold;">
+            Criar conta
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT MENU -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu-lateral");
+      menu.classList.toggle("ativo");
+    }
+  </script>
+
+  <!-- 🔥 SCRIPT DO BOOTSTRAP (OBRIGATÓRIO) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
+
+<script>
+function mostrarOpcoes(nome) {
+  document.getElementById("opcoesPersonal").style.display = "block";
+  document.getElementById("nomePersonal").innerText = "Você escolheu: " + nome;
+}
+
+function fecharOpcoes() {
+  document.getElementById("opcoesPersonal").style.display = "none";
+}
+</script>
+
+<!-- Carroussel -->
+
+<div class="w-100 p-0 m-0">
+  <div id="carouselExemplo" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="img/estadioabertura.jpg" alt="slide-1" class="d-block w-100" style="object-fit: cover; max-height: 600px;">
+          </div>
+          <div class="carousel-item">
+              <img src="imagens/treinospersonalizados.png" alt="slide-2" class="d-block w-100" style="object-fit: cover; max-height: 600px;">
+          </div>
+          <div class="carousel-item">
+              <img src="imagens/dietaexclusiva.png" alt="slide-3" class="d-block w-100" style="object-fit: cover; max-height: 600px;">
+          </div>
+           <div class="carousel-item">
+              <img src="imagens/resultados.png" alt="slide-4" class="d-block w-100" style="object-fit: cover; max-height: 600px;">
+          </div>
+          <div class="carousel-item">
+              <img src="imagens/denani.png" alt="slide-5" class="d-block w-100" style="object-fit: cover; max-height: 600px;">
+          </div>
+            <div class="carousel-item">
+              <img src="imagens/denis.png" alt="slide-6" class="d-block w-100" style="object-fit: cover; max-height: 600px;">
+          </div>
+            <div class="carousel-item">
+              <img src="imagens/ignacio.png" alt="slide-7" class="d-block w-100" style="object-fit: cover; max-height: 600px;">
+          </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExemplo" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExemplo" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+      </button>
+  </div>
+</div>
