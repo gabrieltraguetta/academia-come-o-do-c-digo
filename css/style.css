@@ -1,334 +1,426 @@
-/* ESTILOS GLOBAIS */
-body {
-    background-color: #d3d3d3;
-    font-family: 'Segoe UI', Verdana, Tahoma, sans-serif;
-    min-height: 100vh;
+/* =========================================
+   RESET GERAL
+========================================= */
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Verdana, sans-serif;
 }
 
-/* HERO */
-.hero-banner {
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.45),
-        rgba(0, 0, 0, 0.45)),
-        url("../imagens/telainicial.jpg")
-        center center / cover no-repeat;
-
-    min-height: 650px;
-    width: 100%;
-
-    display: flex;
-    align-items: center;
+body {
+    background-color: #d3d3d3;
+    min-height: 100vh;
 }
 
-/* NAVBAR */
+/* =========================================
+   NAVBAR
+========================================= */
+
 .top-bar {
-    background: #8f8f8f;
-
-    height: 60px;
-
     display: flex;
-    align-items: center;
     justify-content: space-between;
-
-    padding: 0 30px;
-
-    border-top: 3px solid #29a8ff;
-    border-bottom: 2px solid #7d00ff;
-}
-
-/* LOGO */
-.logo {
-    width: 75px;
-    height: auto;
-}
-
-/* ÁREA DIREITA */
-.right-area {
-    display: flex;
     align-items: center;
-    gap: 25px;
+    padding: 15px 30px;
+    background-color: #111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* BOTÃO CADASTRO */
-.btn-cadastro {
-    background: rgb(216, 202, 0);
+.logo {
+    width: 120px;
+}
 
-    border: none;
-    border-radius: 10px;
+/* MENU */
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
 
-    padding: 10px 32px;
-
-    font-weight: bold;
-    font-size: 18px;
-
-    cursor: pointer;
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
     transition: 0.3s;
 }
 
-.btn-cadastro:hover {
-    transform: scale(1.05);
+.menu li a:hover {
+    color: #ffc107;
 }
 
-/* MENU HAMBURGUER */
-.btn-menu {
-    background: none;
+/* BOTÕES NAV */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-cadastro {
+    background-color: #ffc107;
     border: none;
-
-    color: white;
-
-    font-size: 40px;
-
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-/* TEXTO PRINCIPAL */
-.hero-content {
-    padding: 60px 40px;
-    max-width: 600px;
+.btn-menu {
+    display: none;
+    font-size: 26px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* MOBILE MENU */
+@media (max-width: 768px) {
+
+    .menu {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #111;
+        flex-direction: column;
+        width: 200px;
+        padding: 15px;
+        display: none;
+    }
+
+    .menu.ativo {
+        display: flex;
+    }
+
+    .btn-menu {
+        display: block;
+    }
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero-banner {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("../imagens/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    color: white;
 }
 
 .hero-content small {
-    color: rgb(216, 202, 0);
-    font-size: 14px;
+    color: #ffc107;
     font-weight: bold;
-    letter-spacing: 1px;
 }
 
 .hero-content h1 {
-    font-size: 62px;
-    line-height: 1.1;
-    color: white;
-    font-family: serif;
-    margin: 15px 0;
-    font-weight: bold;
+    font-size: 48px;
+    margin-top: 10px;
 }
 
 .hero-content h2 {
-    color: rgb(216, 202, 0);
-    font-size: 38px;
-    font-family: serif;
-    margin-top: 30px;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+/* =========================================
+   FAIXA
+========================================= */
+
+.faixa-branca {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    font-size: 20px;
     font-weight: bold;
 }
 
-/* FAIXA */
-.faixa-branca {
-    background: #f8f8f8;
-    padding: 18px;
-    text-align: center;
-    font-size: 24px;
-    font-style: italic;
-    color: #222;
-}
-
 .faixa-branca span {
-    color: rgb(216, 202, 0);
+    color: #ffc107;
 }
 
-/* ÁREA PERSONAL */
+/* =========================================
+   ÁREA PERSONAL
+========================================= */
+
 .area-personal {
-    background: #d3d3d3;
-    min-height: 500px;
-
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-
-    padding: 60px 40px;
+    padding: 60px;
 }
 
-/* BOTÃO */
 .btn-escolher {
-    background: white;
+    background-color: #111;
+    color: white;
+    padding: 12px 20px;
     border: none;
-    padding: 12px 55px;
-    border-radius: 30px;
-    font-style: italic;
-    font-size: 15px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: bold;
 }
 
 .btn-escolher:hover {
-    transform: scale(1.05);
+    background-color: #333;
 }
 
-/* CELULAR */
 .celular img {
-    width: 260px;
-    border-radius: 10px;
+    width: 220px;
 }
 
-/* PLANOS */
-.planos {
-    background: #d3d3d3;
+/* =========================================
+   PLANOS
+========================================= */
 
+.planos {
     display: flex;
     justify-content: center;
-    gap: 40px;
-
-    padding: 70px 20px;
+    gap: 20px;
+    padding: 60px;
     flex-wrap: wrap;
 }
 
 .card-plano {
-    background: #f1df91;
-    width: 300px;
-    padding: 30px;
-    border-radius: 10px;
-
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card-plano:hover {
+    transform: translateY(-5px);
 }
 
 .card-plano h3 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .card-plano p {
-    margin-bottom: 15px;
+    margin: 5px 0;
 }
 
 .card-plano strong {
     display: block;
-    text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
     font-size: 22px;
+    color: #111;
 }
 
 .destaque {
-    background: rgb(216, 202, 0);
-    transform: scale(1.05);
+    border: 2px solid #ffc107;
 }
 
-/* FEEDBACKS */
-.feedbacks {
-    background: #efefef;
-    padding: 80px 8%;
-}
+/* =========================================
+   FOOTER
+========================================= */
 
-.feedbacks h2 {
+.footer-contato {
+    background-color: #111;
+    color: white;
     text-align: center;
-    margin-bottom: 60px;
-    font-size: 42px;
-    font-style: italic;
-    color: #111;
+    padding: 40px;
 }
 
-.feedback-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
+.footer-contato h2 {
+    margin-bottom: 20px;
 }
 
-.feedback-card {
-    background: #e4e4e4;
-    padding: 25px;
-    border-radius: 5px;
+.redes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.redes img {
+    width: 40px;
     transition: 0.3s;
 }
 
-.feedback-card:hover {
-    transform: translateY(-5px);
+.redes img:hover {
+    transform: scale(1.1);
 }
 
-.feedback-top {
+/* =========================================
+   LOGIN
+========================================= */
+
+.body-login {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 15px;
+    height: 100vh;
 }
 
-.feedback-top img {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
+.login-container {
+    max-width: 400px;
+}
+
+.login-card {
+    border-radius: 12px;
+}
+
+.card-header-blue {
+    background-color: #111;
+    color: white;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-login:hover {
+    background-color: #e0a800;
+}
+
+.info-box {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* =========================================
+   MODAIS
+========================================= */
+
+.modal-content {
+    border-radius: 12px;
+}
+
+.personal-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.personal-card:hover {
+    transform: translateY(-8px);
+}
+
+.personal-card img {
+    height: 250px;
     object-fit: cover;
 }
 
-.feedback-top h3 {
+.personal-card h3 {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.personal-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard-body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+}
+
+.dashboard-topo {
+    background-color: #111;
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.dashboard-title {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
     margin: 0;
-    font-size: 28px;
-    font-style: italic;
-    color: #111;
 }
 
-.stars {
-    color: rgb(216, 202, 0);
-    font-size: 18px;
+.dashboard-title span {
+    color: #ffc107;
 }
 
-.feedback-card p {
-    margin: 0;
-    font-size: 20px;
-    line-height: 1.4;
-    color: #222;
-    font-style: italic;
+.dashboard-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
 }
 
-/* RESPONSIVO */
-@media (max-width: 768px) {
-
-    .top-bar {
-        padding: 0 15px;
-    }
-
-    .logo {
-        width: 60px;
-    }
-
-    .right-area {
-        gap: 15px;
-    }
-
-    .btn-cadastro {
-        padding: 8px 20px;
-        font-size: 12px;
-    }
-
-    .btn-menu {
-        font-size: 35px;
-    }
-
-    .hero-content {
-        padding: 40px 25px;
-    }
-
-    .hero-content h1 {
-        font-size: 42px;
-    }
-
-    .hero-content h2 {
-        font-size: 28px;
-    }
-
-    .hero-banner {
-        min-height: 500px;
-    }
-
-    .area-personal {
-        flex-direction: column;
-        gap: 40px;
-        text-align: center;
-    }
-
-    .celular img {
-        width: 200px;
-    }
-
-    .feedback-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .feedbacks h2 {
-        font-size: 30px;
-    }
-
-    .feedback-card p {
-        font-size: 16px;
-    }
-
+.dashboard-card:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
+
+.dashboard-card .card-header {
+    background-color: #222;
+    color: white;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 14px 20px;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dashboard-table {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.dashboard-table .card-header {
+    padding: 14px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 0 !important;
+}
+
+.dashboard-table table thead tr th {
+    background-color: #f8f9fa;
+    color: #444;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 16px;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.dashboard-table table tbody tr td {
+    padding: 12px 16px;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.dashboard-table table tbody tr:hover {
+    background-color: #fffbea;
+}
+
+.admin-mini-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffc107;
+}
+</parameter>
+</invoke>
