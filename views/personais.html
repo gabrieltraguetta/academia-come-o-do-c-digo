@@ -29,7 +29,7 @@
     <!-- CARDS -->
     <section class="container pb-5">
 
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4 justify-content-center" id="listaPersonais">
 
             <!-- CARD 1 -->
             <div class="col-md-3">
@@ -92,6 +92,39 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        // LER FUNCIONÁRIOS DO LOCALSTORAGE E EXIBIR COMO CARDS
+        const funcionarios = JSON.parse(localStorage.getItem("funcionarios") || "[]");
+        const lista = document.getElementById("listaPersonais");
+
+        funcionarios.forEach(func => {
+
+            const fotoHTML = func.foto
+                ? `<img src="${func.foto}" class="card-img-top" alt="${func.nome}" style="height:250px; object-fit:cover;">`
+                : `<div style="height:250px; background:#ddd; display:flex; align-items:center; justify-content:center; font-size:48px;">👤</div>`;
+
+            const col = document.createElement("div");
+            col.className = "col-md-3";
+            col.innerHTML = `
+                <div class="card personal-card h-100 text-center">
+                    ${fotoHTML}
+                    <div class="card-body">
+                        <h3>${func.nome}</h3>
+                        <h5 class="text-muted">${func.especialidade}</h5>
+                        <p>${func.tipo}</p>
+                        <span class="badge bg-success mb-3">Disponível</span><br>
+                        <button class="btn btn-success w-100">WhatsApp</button>
+                    </div>
+                </div>
+            `;
+
+            lista.appendChild(col);
+
+        });
+
+    </script>
 
 </body>
 

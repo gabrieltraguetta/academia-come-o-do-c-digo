@@ -1,258 +1,404 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <!-- Configurações básicas -->
-    <meta charset="UTF-8"> <!-- Suporte a acentos -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade -->
-    <title>Painel Administrativo — Academia</title>
-    
-    <!-- Bootstrap (layout e componentes prontos) -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Academia</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Ícones (Font Awesome) -->
-    <link href="https://fontawesome.com/v4/icon/star" rel="stylesheet">
-    
-    <!-- CSS personalizado -->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS -->
     <link href="../css/style.css" rel="stylesheet">
-    
-    <!-- Ícone da aba -->
-    <link rel="icon" type="image/png" href="imagens/logo-iconegym-removebg-preview.png">
+
+    <style>
+
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* TOPO */
+        .topo {
+            background-color: #111;
+            padding: 16px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topo h1 {
+            color: white;
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .topo h1 span {
+            color: #ffc107;
+        }
+
+        .topo-direita {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topo-direita span {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* CARDS RESUMO */
+        .resumo {
+            display: flex;
+            gap: 20px;
+            padding: 30px 30px 10px 30px;
+            flex-wrap: wrap;
+        }
+
+        .card-resumo {
+            background: white;
+            border-radius: 10px;
+            padding: 20px 28px;
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-top: 4px solid #ffc107;
+        }
+
+        .card-resumo .numero {
+            font-size: 32px;
+            font-weight: bold;
+            color: #111;
+        }
+
+        .card-resumo .label {
+            font-size: 13px;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        /* CONTEÚDO */
+        .conteudo {
+            padding: 20px 30px 40px 30px;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        /* TABELA CLIENTES */
+        .bloco {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .bloco-header {
+            background-color: #111;
+            color: white;
+            padding: 14px 20px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .bloco-header i {
+            margin-right: 8px;
+            color: #ffc107;
+        }
+
+        table thead th {
+            background-color: #f8f9fa;
+            color: #555;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: none;
+        }
+
+        table tbody tr:hover {
+            background-color: #fffbea;
+        }
+
+        .foto-cliente {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffc107;
+        }
+
+        /* FORM FUNCIONÁRIO */
+        .bloco-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .bloco-tabela {
+            flex: 2;
+            min-width: 400px;
+        }
+
+        .btn-salvar {
+            background-color: #ffc107;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        .btn-salvar:hover {
+            background-color: #e0a800;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<!--Container principal-->
-<div class="container mt-4 pb-4">
+    <!-- TOPO -->
+    <div class="topo">
+        <h1>⚡ Painel <span>Admin</span></h1>
+        <div class="topo-direita">
+            <span>👤 <span id="userNameDisplay">Usuário</span></span>
+            <a href="index.html" class="btn btn-sm btn-outline-light">Ver Site</a>
+            <button class="btn btn-sm btn-outline-danger" id="btnLogout">Sair</button>
+        </div>
+    </div>
 
-    <!-- Cabeçalho principal-->
-     <div class="d-flex justify-content-between align-items-center mb-4">
+    <!-- CARDS RESUMO -->
+    <div class="resumo">
 
-        <!--Título-->
-        <h2 class="mb-0">
-            <i class="fas fa-tachometer-alt me-2 text-gray"></i> Painel de controle
-        </h2>
+        <div class="card-resumo">
+            <div class="numero">3</div>
+            <div class="label">Clientes</div>
+        </div>
 
-        <!--Área do usuário-->
-     <div>
-     <!--Nome do usuário-->
-     <span class="badge bg-dark fs-6 p-2 shadow-sm">
-        <i class="fas fa-user-circle me-1"></i>
-        <span id="userNameDisplay">Admin Estático</span>
-     </span>
+        <div class="card-resumo">
+            <div class="numero">4</div>
+            <div class="label">Funcionários</div>
+        </div>
 
-     <!--Botão sair-->
-     <button class="btn btn-outline-danger btn-sm ms-2">
-        <i class="fas fa-sign-out-alt"></i> Sair
-     </button>
+        <div class="card-resumo">
+            <div class="numero">2</div>
+            <div class="label">Online agora</div>
+        </div>
 
-     <!--Link para visualizar o site-->
-     <a href="index.html" class="btn btn-outline-secondary btn-sm ms-1">
-        <i class="fas fa-external-link-alt"></i> Ver Site
-     </a>
-</div>
-</div>
+        <div class="card-resumo">
+            <div class="numero">3</div>
+            <div class="label">Planos ativos</div>
+        </div>
 
-<!--Linha com dois painéis-->
-<div class="row g-4 mb-4">
+    </div>
 
-    <!-- Painel do adicionar profissional-->
-     <div class="col-md-6" id="painelAdmin" style="display: block;">
-        <div class="card shadow-sm h-100 border-0 border-top border-slategray border-3">
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
 
-            <!--Cabeçalho do card-->
-            <div class="card-header bg-white fw-bold py-3">
-                <i class="fas fa-plus-circle text-slategray me-1"></i> Adicionar Novo Funcionário
+        <!-- FORM ADICIONAR FUNCIONÁRIO -->
+        <div class="bloco bloco-form">
+
+            <div class="bloco-header">
+                <i class="fas fa-plus"></i> Novo Funcionário
             </div>
 
-            <!-- Corpo com formulário-->
-             <div class="card-body">
-                <form id="formAddFuncionário">
+            <div class="p-4">
+                <form id="formAddFuncionario">
 
-                    <!-- Linha: especialidade + currículo-->
-                     <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label small fw-semibold text-muted">Especialidade</label>
-                            <input type="text" class="form-control" id="modelo" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label small fw-semibold text-muted">Nome Completo</label>
-                            <input type="text" class="form-control" id=" currículo--" required>
-                        </div>
-                     </div>
+                    <div class="mb-3">
+                        <label>Nome Completo</label>
+                        <input type="text" class="form-control" id="curriculo" placeholder="Ex: Maria Silva" required>
+                    </div>
 
-                     <!--Linha: Área Especializada-->
-                     <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label small fw-semibold text">Genêro</label>
-                            <select class="form-select" id="tipo" required>
-                                <option value="Feminino">Feminino</option>
-                                <option value="Masculino">Masculino</option>
-                                 <option value="Feminino">Outro</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label class="form-label small fw-semibold text-muted">Foto 3x4</label>
-                            <input type="file" class="form-control" id="imagem">
-                        </div>
-                     </div>
+                    <div class="mb-3">
+                        <label>Especialidade</label>
+                        <input type="text" class="form-control" id="especialidade" placeholder="Ex: Personal Trainer" required>
+                    </div>
 
-                     <!-- Botão de envio-->
-                      <button type="submit" class="btn btn-black w-100 fw-bold">
-                        <i class="fas fa-save me-1"></i> Cadastrar Funcionário 
-                      </button>
+                    <div class="mb-3">
+                        <label>Gênero</label>
+                        <select class="form-select" id="tipo" required>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Foto</label>
+                        <input type="file" class="form-control" id="imagem">
+                    </div>
+
+                    <button type="submit" class="btn-salvar">
+                        <i class="fas fa-save"></i> Cadastrar
+                    </button>
+
                 </form>
-             </div>
-        </div>
-     </div>
-
-     <!-- Painel de Contratados-->
-      <div class="painelDeFuncionários col-md-6">
-        <div class="card shadow-sm h-100 border-0 border-top border-info border-3">
-
-            <!-- Cabeçalho-->
-             <div class="card-header bg-white fw-bold py-3">
-                <i class="fas fa-calculator text-info me-1"></i> Ver os Contratados
-             </div>
-
-             <!--Corpo-->
-             <div class="card-body">
-
-                <!-- Seleção de tipo-->
-                 <div class="mb-3">
-                    <label class="form-label small text-muted">Maria Eduarda Ota -   Personal Trainer</label> 
-                    <label class="form-label small text-muted d-flex flex-colunm"></label>Lucas</label>
-                    <label class="form-label small text-muted d-flex flex-colunm"></label>Fisio</label>
-                    <label class="form-label small text-muted d-flex flex-colunm"></label>Fisio</label>
-                            
-  
-                
-                    
-                    </select>
-                 </div>
-
-                    
-                </div>
             </div>
+
         </div>
 
-        <!-- Tabela de Planos -->
-         <div class="card shadow-sm border-0">
+        <!-- TABELA CLIENTES -->
+        <div class="bloco bloco-tabela">
 
-            <!-- Cabeçalho -->
-             <div class="card-header bg-dark text-white fw-semibold py-3">
-                <i class="fas fa-list me-1"></i>Clientes
-             </div>
-
-            <!-- Corpo da tabela -->
-            <div class="card-body p-0">
-                <div class="table-responsive">
-
-                    <!-- Tabela -->
-                    <table class="table table-striped table-hover mb-0 align-middle">
-
-                        <!-- cabeçalho das tabela -->
-                        <thead class="table-light">
-                            <tr>
-                                <th class="ps-3">Foto</th>
-                                <th>Nome</th>
-                                <th>Tipo de Plano</th>
-                                <th>Número</th>
-                                <th>Online/Off</th>
-                                <th id="thAcoes" class="text-end pe-4">Ações</th>
-                            </tr>
-                        </thead>
-
-                        <!-- Corpo da tabela -->
-                        <tbody id="tabelaClientes">
-
-                            <!-- Clientes Logados-->
-                            <tr>
-                                <td class="ps-3">
-                                    <img src="../../Imagens/Sandero.png" class="admin-mini-img" alt="Ignácio Da Cunha">
-                                </td>
-                                <td>Ignácio Da Cunha</td>
-                                <td>Normal</td>
-                                <td>11 6660-8745</td>
-                                <td><span class="badge bg-success">Online</span></td>
-                                <td class="text-end pe-3 table-actions">
-
-                                    <!-- Excluir -->
-                                    <button class="btn btn-outline-danger btn-sm ms-1">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </td>                              
-                            </tr>
-                                
-                            <!-- Aluno -->
-                            <tr>
-                                <td class="ps-3">
-                                    <img src="../../Imagens/Ninja.png" class="admin-mini-img" alt="André Denani">
-                                </td>
-                                <td>André Denani</td>
-                                <td>Completo</td>
-                                <td>11 22759-9389</td>
-                                <td><span class="badge bg-danger">Off</span></td>
-                                <td class="text-end pe-3 table-actions">
-
-
-                                    <!-- Excluir -->
-                                    <button class="btn btn-outline-danger btn-sm ms-1">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-
-                             <!-- Aluno -->
-                            <tr>
-                                <td class="ps-3">
-                                    <img src="../../Imagens/Ninja.png" class="admin-mini-img" alt="André Denani">
-                                </td>
-                                <td>Denis</td>
-                                <td>Simples</td>
-                                <td>11 4752-7385</td>
-                                <td><span class="badge bg-success">Online</span></td>
-                                <td class="text-end pe-3 table-actions">
-
-
-                                    <!-- Excluir -->
-                                    <button class="btn btn-outline-danger btn-sm ms-1">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
+            <div class="bloco-header">
+                <i class="fas fa-users"></i> Clientes
             </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 align-middle">
+
+                    <thead>
+                        <tr>
+                            <th class="ps-3">Foto</th>
+                            <th>Nome</th>
+                            <th>Plano</th>
+                            <th>Telefone</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaClientes">
+
+                        <tr>
+                            <td class="ps-3">
+                                <img src="imagens/ignaciobomba.png" class="foto-cliente" alt="Ignácio">
+                            </td>
+                            <td>Ignácio Da Cunha</td>
+                            <td>Normal</td>
+                            <td>11 6660-8745</td>
+                            <td><span class="badge bg-success">Online</span></td>
+                            <td>
+                                <button class="btn btn-outline-danger btn-sm btn-deletar">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ps-3">
+                                <img src="imagens/denanibomba.jpg" class="foto-cliente" alt="André">
+                            </td>
+                            <td>André Denani</td>
+                            <td>Completo</td>
+                            <td>11 22759-9389</td>
+                            <td><span class="badge bg-danger">Off</span></td>
+                            <td>
+                                <button class="btn btn-outline-danger btn-sm btn-deletar">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ps-3">
+                                <img src="imagens/denisbomba.png" class="foto-cliente" alt="Denis">
+                            </td>
+                            <td>Denis</td>
+                            <td>Simples</td>
+                            <td>11 4752-7385</td>
+                            <td><span class="badge bg-success">Online</span></td>
+                            <td>
+                                <button class="btn btn-outline-danger btn-sm btn-deletar">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
         </div>
+
     </div>
 
-    <!-- Modal de edição  -->
-    <div class="modal fade" id="modalEditarVeiculo" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Cabeçalho do modal -->
-                <div class="modal-header bg-warning text-dark">
-                    <h5 class="modal-title fw-bold">
-                        <i class="fas fa-edit"></i>Editar Veículo
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                    </button>               
-                </div>
-
-                <!-- Corpo do modal -->
-                <div class="modal-body">
-                    <p>Nesta fase 1 o formulário é apenas visual.</p>
-                    <input type="text" class="form-control mb-3" placeholder="Modelo">
-                    <input type="text" class="form-control" placeholder="Placa">
-                </div>
-            </div>
-        </div>    
-    </div>
-
-    <!-- Script do Bootstrap -->
+    <!-- BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+
+        // PROTEÇÃO LOGIN
+        if (sessionStorage.getItem("logado") !== "true") {
+            alert("Faça login primeiro!");
+            window.location.href = "login.html";
+        }
+
+        // EXIBIR EMAIL DO USUÁRIO
+        document.getElementById("userNameDisplay").textContent =
+            localStorage.getItem("emailUsuario") || "Admin";
+
+        // LOGOUT
+        document.getElementById("btnLogout").addEventListener("click", () => {
+            sessionStorage.removeItem("logado");
+            alert("Logout realizado!");
+            window.location.href = "index.html";
+        });
+
+        // CADASTRAR FUNCIONÁRIO
+        document.getElementById("formAddFuncionario").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById("curriculo").value;
+            const especialidade = document.getElementById("especialidade").value;
+            const tipo = document.getElementById("tipo").value;
+            const imagemInput = document.getElementById("imagem");
+            const arquivo = imagemInput.files[0];
+
+            function salvarFuncionario(fotoBase64) {
+                const funcionarios = JSON.parse(localStorage.getItem("funcionarios") || "[]");
+
+                funcionarios.push({
+                    nome,
+                    especialidade,
+                    tipo,
+                    foto: fotoBase64 || ""
+                });
+
+                localStorage.setItem("funcionarios", JSON.stringify(funcionarios));
+                alert("Funcionário cadastrado com sucesso! Ele já aparece em Personais.");
+                document.getElementById("formAddFuncionario").reset();
+            }
+
+            if (arquivo) {
+                const reader = new FileReader();
+                reader.onload = function(ev) {
+                    salvarFuncionario(ev.target.result);
+                };
+                reader.readAsDataURL(arquivo);
+            } else {
+                salvarFuncionario("");
+            }
+        });
+
+        // DELETAR LINHA
+        document.querySelectorAll(".btn-deletar").forEach(btn => {
+            btn.addEventListener("click", () => {
+                if (confirm("Remover este cliente?")) {
+                    btn.closest("tr").remove();
+                }
+            });
+        });
+
+    </script>
+
 </body>
+
 </html>
